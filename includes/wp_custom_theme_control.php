@@ -3,48 +3,48 @@
 WP CUSTOMIZE SECTION - CUSTOM SETTINGS
 -------------------------------------------------------------- */
 
-add_action( 'customize_register', 'PROYECTO_customize_register' );
+add_action( 'customize_register', 'evtvmiami_customize_register' );
 
-function PROYECTO_customize_register( $wp_customize ) {
+function evtvmiami_customize_register( $wp_customize ) {
 
     /* SOCIAL SETTINGS */
-    $wp_customize->add_section('PREFIJO_social_settings', array(
-        'title'    => __('Redes Sociales', 'PROYECTO'),
-        'description' => __('Agregue aqui las redes sociales de la página, serán usadas globalmente', 'PROYECTO'),
+    $wp_customize->add_section('evt_social_settings', array(
+        'title'    => __('Redes Sociales', 'evtvmiami'),
+        'description' => __('Agregue aqui las redes sociales de la página, serán usadas globalmente', 'evtvmiami'),
         'priority' => 175,
     ));
 
-    $wp_customize->add_setting('PREFIJO_social_settings[facebook]', array(
+    $wp_customize->add_setting('evt_social_settings[facebook]', array(
         'default'           => '',
-        'sanitize_callback' => 'PROYECTO_sanitize_url',
+        'sanitize_callback' => 'evtvmiami_sanitize_url',
         'capability'        => 'edit_theme_options',
         'type'           => 'option',
     ));
 
     $wp_customize->add_control( 'facebook', array(
         'type' => 'url',
-        'section' => 'PREFIJO_social_settings',
-        'settings' => 'PREFIJO_social_settings[facebook]',
-        'label' => __( 'Facebook', 'PROYECTO' ),
+        'section' => 'evt_social_settings',
+        'settings' => 'evt_social_settings[facebook]',
+        'label' => __( 'Facebook', 'evtvmiami' ),
     ));
 
-    $wp_customize->add_setting('PREFIJO_social_settings[twitter]', array(
+    $wp_customize->add_setting('evt_social_settings[twitter]', array(
         'default'           => '',
-        'sanitize_callback' => 'PROYECTO_sanitize_url',
+        'sanitize_callback' => 'evtvmiami_sanitize_url',
         'capability'        => 'edit_theme_options',
         'type'           => 'option',
     ));
 
     $wp_customize->add_control( 'twitter', array(
         'type' => 'url',
-        'section' => 'PREFIJO_social_settings',
-        'settings' => 'PREFIJO_social_settings[twitter]',
-        'label' => __( 'Twitter', 'PROYECTO' ),
+        'section' => 'evt_social_settings',
+        'settings' => 'evt_social_settings[twitter]',
+        'label' => __( 'Twitter', 'evtvmiami' ),
     ));
 
-    $wp_customize->add_setting('PREFIJO_social_settings[instagram]', array(
+    $wp_customize->add_setting('evt_social_settings[instagram]', array(
         'default'           => '',
-        'sanitize_callback' => 'PROYECTO_sanitize_url',
+        'sanitize_callback' => 'evtvmiami_sanitize_url',
         'capability'        => 'edit_theme_options',
         'type'           => 'option',
 
@@ -52,28 +52,28 @@ function PROYECTO_customize_register( $wp_customize ) {
 
     $wp_customize->add_control( 'instagram', array(
         'type' => 'url',
-        'section' => 'PREFIJO_social_settings',
-        'settings' => 'PREFIJO_social_settings[instagram]',
-        'label' => __( 'Instagram', 'PROYECTO' ),
+        'section' => 'evt_social_settings',
+        'settings' => 'evt_social_settings[instagram]',
+        'label' => __( 'Instagram', 'evtvmiami' ),
     ));
 
-    $wp_customize->add_setting('PREFIJO_social_settings[linkedin]', array(
+    $wp_customize->add_setting('evt_social_settings[linkedin]', array(
         'default'           => '',
-        'sanitize_callback' => 'PROYECTO_sanitize_url',
+        'sanitize_callback' => 'evtvmiami_sanitize_url',
         'capability'        => 'edit_theme_options',
         'type'           => 'option',
     ));
 
     $wp_customize->add_control( 'linkedin', array(
         'type' => 'url',
-        'section' => 'PREFIJO_social_settings',
-        'settings' => 'PREFIJO_social_settings[linkedin]',
-        'label' => __( 'LinkedIn', 'PROYECTO' ),
+        'section' => 'evt_social_settings',
+        'settings' => 'evt_social_settings[linkedin]',
+        'label' => __( 'LinkedIn', 'evtvmiami' ),
     ));
 
-    $wp_customize->add_setting('PREFIJO_social_settings[youtube]', array(
+    $wp_customize->add_setting('evt_social_settings[youtube]', array(
         'default'           => '',
-        'sanitize_callback' => 'PROYECTO_sanitize_url',
+        'sanitize_callback' => 'evtvmiami_sanitize_url',
         'capability'        => 'edit_theme_options',
         'type'           => 'option',
 
@@ -81,19 +81,19 @@ function PROYECTO_customize_register( $wp_customize ) {
 
     $wp_customize->add_control( 'youtube', array(
         'type' => 'url',
-        'section' => 'PREFIJO_social_settings',
-        'settings' => 'PREFIJO_social_settings[youtube]',
-        'label' => __( 'YouTube', 'PROYECTO' ),
+        'section' => 'evt_social_settings',
+        'settings' => 'evt_social_settings[youtube]',
+        'label' => __( 'YouTube', 'evtvmiami' ),
     ) );
 
     /* COOKIES SETTINGS */
-    $wp_customize->add_section('PREFIJO_cookie_settings', array(
-        'title'    => __('Cookies', 'PROYECTO'),
-        'description' => __('Opciones de Cookies', 'PROYECTO'),
+    $wp_customize->add_section('evt_cookie_settings', array(
+        'title'    => __('Cookies', 'evtvmiami'),
+        'description' => __('Opciones de Cookies', 'evtvmiami'),
         'priority' => 176,
     ));
 
-    $wp_customize->add_setting('PREFIJO_cookie_settings[cookie_text]', array(
+    $wp_customize->add_setting('evt_cookie_settings[cookie_text]', array(
         'default'           => '',
         'sanitize_callback' => 'sanitize_text_field',
         'capability'        => 'edit_theme_options',
@@ -103,13 +103,13 @@ function PROYECTO_customize_register( $wp_customize ) {
 
     $wp_customize->add_control( 'cookie_text', array(
         'type' => 'textarea',
-        'label'    => __('Cookie consent', 'PROYECTO'),
+        'label'    => __('Cookie consent', 'evtvmiami'),
         'description' => __( 'Texto del Cookie consent.' ),
-        'section'  => 'PREFIJO_cookie_settings',
-        'settings' => 'PREFIJO_cookie_settings[cookie_text]'
+        'section'  => 'evt_cookie_settings',
+        'settings' => 'evt_cookie_settings[cookie_text]'
     ));
 
-    $wp_customize->add_setting('PREFIJO_cookie_settings[cookie_link]', array(
+    $wp_customize->add_setting('evt_cookie_settings[cookie_link]', array(
         'default'           => '',
         'sanitize_callback' => 'absint',
         'capability'        => 'edit_theme_options',
@@ -119,14 +119,14 @@ function PROYECTO_customize_register( $wp_customize ) {
 
     $wp_customize->add_control( 'cookie_link', array(
         'type'     => 'dropdown-pages',
-        'section' => 'PREFIJO_cookie_settings',
-        'settings' => 'PREFIJO_cookie_settings[cookie_link]',
-        'label' => __( 'Link de Cookies', 'PROYECTO' ),
+        'section' => 'evt_cookie_settings',
+        'settings' => 'evt_cookie_settings[cookie_link]',
+        'label' => __( 'Link de Cookies', 'evtvmiami' ),
     ) );
 
 }
 
-function PROYECTO_sanitize_url( $url ) {
+function evtvmiami_sanitize_url( $url ) {
     return esc_url_raw( $url );
 }
 
@@ -134,41 +134,41 @@ function PROYECTO_sanitize_url( $url ) {
 CUSTOM CONTROL PANEL
 -------------------------------------------------------------- */
 /*
-function register_PROYECTO_settings() {
-    register_setting( 'PROYECTO-settings-group', 'monday_start' );
-    register_setting( 'PROYECTO-settings-group', 'monday_end' );
-    register_setting( 'PROYECTO-settings-group', 'monday_all' );
+function register_evtvmiami_settings() {
+    register_setting( 'evtvmiami-settings-group', 'monday_start' );
+    register_setting( 'evtvmiami-settings-group', 'monday_end' );
+    register_setting( 'evtvmiami-settings-group', 'monday_all' );
 }
 
-add_action('admin_menu', 'PROYECTO_custom_panel_control');
+add_action('admin_menu', 'evtvmiami_custom_panel_control');
 
-function PROYECTO_custom_panel_control() {
+function evtvmiami_custom_panel_control() {
     add_menu_page(
-        __( 'Panel de Control', 'PROYECTO' ),
-        __( 'Panel de Control','PROYECTO' ),
+        __( 'Panel de Control', 'evtvmiami' ),
+        __( 'Panel de Control','evtvmiami' ),
         'manage_options',
-        'PROYECTO-control-panel',
-        'PROYECTO_control_panel_callback',
+        'evtvmiami-control-panel',
+        'evtvmiami_control_panel_callback',
         'dashicons-admin-generic',
         120
     );
-    add_action( 'admin_init', 'register_PROYECTO_settings' );
+    add_action( 'admin_init', 'register_evtvmiami_settings' );
 }
 
-function PROYECTO_control_panel_callback() {
+function evtvmiami_control_panel_callback() {
     ob_start();
 ?>
-<div class="PROYECTO-admin-header-container">
-    <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="PROYECTO" />
+<div class="evtvmiami-admin-header-container">
+    <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="evtvmiami" />
     <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 </div>
-<form method="post" action="options.php" class="PROYECTO-admin-content-container">
-    <?php settings_fields( 'PROYECTO-settings-group' ); ?>
-    <?php do_settings_sections( 'PROYECTO-settings-group' ); ?>
-    <div class="PROYECTO-admin-content-item">
+<form method="post" action="options.php" class="evtvmiami-admin-content-container">
+    <?php settings_fields( 'evtvmiami-settings-group' ); ?>
+    <?php do_settings_sections( 'evtvmiami-settings-group' ); ?>
+    <div class="evtvmiami-admin-content-item">
         <table class="form-table">
             <tr valign="center">
-                <th scope="row"><?php _e('Monday', 'PROYECTO'); ?></th>
+                <th scope="row"><?php _e('Monday', 'evtvmiami'); ?></th>
                 <td>
                     <label for="monday_start">Starting Hour: <input type="time" name="monday_start" value="<?php echo esc_attr( get_option('monday_start') ); ?>"></label>
                     <label for="monday_end">Ending Hour: <input type="time" name="monday_end" value="<?php echo esc_attr( get_option('monday_end') ); ?>"></label>
@@ -177,7 +177,7 @@ function PROYECTO_control_panel_callback() {
             </tr>
         </table>
     </div>
-    <div class="PROYECTO-admin-content-submit">
+    <div class="evtvmiami-admin-content-submit">
         <?php submit_button(); ?>
     </div>
 </form>

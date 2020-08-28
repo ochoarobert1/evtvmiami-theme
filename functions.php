@@ -10,8 +10,8 @@ require_once('includes/wp_enqueue_styles.php');
     ENQUEUE AND REGISTER JS
 -------------------------------------------------------------- */
 
-if (!is_admin()) add_action('wp_enqueue_scripts', 'PROYECTO_jquery_enqueue');
-function PROYECTO_jquery_enqueue() {
+if (!is_admin()) add_action('wp_enqueue_scripts', 'evtvmiami_jquery_enqueue');
+function evtvmiami_jquery_enqueue() {
     wp_deregister_script('jquery');
     wp_deregister_script('jquery-migrate');
     if ($_SERVER['REMOTE_ADDR'] == '::1') {
@@ -37,8 +37,8 @@ require_once('includes/wp_enqueue_scripts.php');
     ADD CUSTOM WALKER BOOTSTRAP
 -------------------------------------------------------------- */
 
-add_action( 'after_setup_theme', 'PROYECTO_register_navwalker' );
-function PROYECTO_register_navwalker(){
+add_action( 'after_setup_theme', 'evtvmiami_register_navwalker' );
+function evtvmiami_register_navwalker(){
     require_once('includes/class-wp-bootstrap-navwalker.php');
 }
 
@@ -74,20 +74,20 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 -------------------------------------------------------------- */
 
 register_nav_menus( array(
-    'header_menu' => __( 'Menu Header - Principal', 'PROYECTO' )
+    'header_menu' => __( 'Menu Header - Principal', 'evtvmiami' )
 ) );
 
 /* --------------------------------------------------------------
     ADD DYNAMIC SIDEBAR SUPPORT
 -------------------------------------------------------------- */
 
-add_action( 'widgets_init', 'PROYECTO_widgets_init' );
+add_action( 'widgets_init', 'evtvmiami_widgets_init' );
 
-function PROYECTO_widgets_init() {
+function evtvmiami_widgets_init() {
     register_sidebar( array(
-        'name' => __( 'Sidebar Principal', 'PROYECTO' ),
+        'name' => __( 'Sidebar Principal', 'evtvmiami' ),
         'id' => 'main_sidebar',
-        'description' => __( 'Estos widgets seran vistos en las entradas y páginas del sitio', 'PROYECTO' ),
+        'description' => __( 'Estos widgets seran vistos en las entradas y páginas del sitio', 'evtvmiami' ),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget'  => '</li>',
         'before_title'  => '<h2 class="widgettitle">',
@@ -95,24 +95,14 @@ function PROYECTO_widgets_init() {
     ) );
 
     register_sidebars( 4, array(
-        'name'          => __('Pie de Página %d', 'PROYECTO'),
+        'name'          => __('Pie de Página %d', 'evtvmiami'),
         'id'            => 'sidebar_footer',
-        'description'   => __('Estos widgets seran vistos en el pie de página del sitio', 'PROYECTO'),
+        'description'   => __('Estos widgets seran vistos en el pie de página del sitio', 'evtvmiami'),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget'  => '</li>',
         'before_title'  => '<h2 class="widgettitle">',
         'after_title'   => '</h2>'
     ) );
-
-    //    register_sidebar( array(
-    //        'name' => __( 'Sidebar de la Tienda', 'PROYECTO' ),
-    //        'id' => 'shop_sidebar',
-    //        'description' => __( 'Estos widgets seran vistos en Tienda y Categorias de Producto', 'PROYECTO' ),
-    //        'before_widget' => '<li id='%1$s' class='widget %2$s'>',
-    //        'after_widget'  => '</li>',
-    //        'before_title'  => '<h2 class='widgettitle'>',
-    //        'after_title'   => '</h2>',
-    //    ) );
 }
 
 
@@ -138,6 +128,7 @@ require_once('includes/wp_custom_theme_control.php');
 /* --------------------------------------------------------------
     ADD CUSTOM IMAGE SIZE
 -------------------------------------------------------------- */
+
 if ( function_exists('add_theme_support') ) {
     add_theme_support('post-thumbnails');
     set_post_thumbnail_size( 9999, 400, true);

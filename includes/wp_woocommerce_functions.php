@@ -2,8 +2,8 @@
 /* WOOCOMMERCE CUSTOM COMMANDS */
 
 /* WOOCOMMERCE - DECLARE THEME SUPPORT - BEGIN */
-add_action( 'after_setup_theme', 'PROYECTO_woocommerce_support' );
-function PROYECTO_woocommerce_support() {
+add_action( 'after_setup_theme', 'evtvmiami_woocommerce_support' );
+function evtvmiami_woocommerce_support() {
     add_theme_support( 'woocommerce' );
     add_theme_support( 'wc-product-gallery-zoom' );
     add_theme_support( 'wc-product-gallery-lightbox' );
@@ -15,14 +15,14 @@ function PROYECTO_woocommerce_support() {
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 
-add_action('woocommerce_before_main_content', 'PROYECTO_woocommerce_custom_wrapper_start', 10);
-add_action('woocommerce_after_main_content', 'PROYECTO_woocommerce_custom_wrapper_end', 10);
+add_action('woocommerce_before_main_content', 'evtvmiami_woocommerce_custom_wrapper_start', 10);
+add_action('woocommerce_after_main_content', 'evtvmiami_woocommerce_custom_wrapper_end', 10);
 
-function PROYECTO_woocommerce_custom_wrapper_start() {
+function evtvmiami_woocommerce_custom_wrapper_start() {
     echo '<section id="main" class="container-fluid"><div class="row"><div class="woocustom-main-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">';
 }
 
-function PROYECTO_woocommerce_custom_wrapper_end() {
+function evtvmiami_woocommerce_custom_wrapper_end() {
     echo '</div></div></section>';
 }
 /* WOOCOMMERCE - CUSTOM WRAPPER - END */
